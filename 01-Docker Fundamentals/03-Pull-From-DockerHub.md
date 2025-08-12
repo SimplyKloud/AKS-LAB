@@ -4,6 +4,7 @@
 ```
 docker version
 docker login
+SimplyKloud / Dotcom12@@1
 ```
 
 ## Step-2: Pull Image from Docker Hub
