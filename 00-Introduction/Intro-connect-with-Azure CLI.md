@@ -26,14 +26,12 @@
 <img width="477" height="556" alt="image" src="https://github.com/user-attachments/assets/3656cba7-e285-400f-ae8b-5222960aa435" />
 
 ### kube-apiserver
-- It acts as front end for the Kubernetes control plane. It exposes the Kubernetes API
 - It is the central management point for the Kubernetes cluster. It exposes the Kubernetes API, allowing users and other components to interact with the cluster.
 ### etcd
 - Consistent and highly-available key value store used as Kubernetes’ backing store for all cluster data.
 - It stores all the masters and worker node information. 
 ### kube-scheduler
 - Responsible for scheduling pods (the smallest deployable units in Kubernetes) onto the available nodes in the cluster based on resource requirements
-- It watches for newly created Pods with no assigned node, and selects a node for them to run on
 ### kube-controller-manager
 Controllers are responsible for noticing and responding when nodes, containers or endpoints go down. They make decisions to bring up new containers in such cases. 
 - Node Controller:
