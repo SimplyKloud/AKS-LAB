@@ -57,6 +57,7 @@ Controllers are responsible for noticing and responding when nodes, containers o
 
 ## AKS Architecture - Worker Node
 <img width="477" height="255" alt="image" src="https://github.com/user-attachments/assets/133f937c-b474-45ed-9ab1-b1d32b393cb0" />
+
 ### Container Runtime
 - Container Runtime is the underlying software where we run all these Kubernetes components. 
 - We are using Docker, but we have other runtime options like rkt, container-d etc.
