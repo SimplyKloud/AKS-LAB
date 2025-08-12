@@ -1,12 +1,15 @@
-#Install azure cli -- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
-az --version # to check cli version
-#Install azure aks cli
-az aks install-cli # run from command prompt or powershell
-#Then onpen visual studio code and run the commands from powershell terminal
+### Install azure cli
+- https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+- az --version # to check cli version
+- Install azure aks cli
+- az aks install-cli # run from command prompt or powershell
+- Then onpen visual studio code and run the commands from powershell terminal
 
-#Azure CLI command
-az login --tenant "6c497b5d-9c1b-4c0b-bb4a-58ec11153372"
+### Azure CLI command
+- az login --tenant "6c497b5d-9c1b-4c0b-bb4a-58ec11153372"
+- Get-AzContext
 
+```
 ## Create one aks cluster using azure portal
 az aks get-credentials --resource-group kubernetes-poc --name aks-poc-ne001
 kubectl get nodes -o wide 
@@ -42,3 +45,4 @@ http://<External-IP-from-get-service-output>
 
 # Delete Applications
 kubectl delete -f kube-manifests/
+```
