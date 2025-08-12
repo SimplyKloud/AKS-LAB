@@ -69,6 +69,7 @@ Controllers are responsible for noticing and responding when nodes, containers o
 - It maintains network rules on nodes
 - In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
 
+**NOTE** - Create one AKS cluster in Azure Portal and explore the options and features with below commands and also navigate in portal.
 ```
 ## Create one aks cluster using azure portal
 az aks get-credentials --resource-group kubernetes-poc --name aks-poc-ne001
