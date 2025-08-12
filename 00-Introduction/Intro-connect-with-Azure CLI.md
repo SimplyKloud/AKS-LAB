@@ -3,11 +3,14 @@
 - az --version # to check cli version
 - Install azure aks cli
 - az aks install-cli # run from command prompt or powershell
+- kubectl version
 - Then onpen visual studio code and run the commands from powershell terminal
 
 ### Azure CLI command
 - az login --tenant "6c497b5d-9c1b-4c0b-bb4a-58ec11153372"
 - Get-AzContext
+- az --version
+- kubectl version
 
 ## AKS Introduction
 - AKS is highly available, secure and fully Azure managed Kubernetes Service
@@ -64,11 +67,6 @@ Controllers are responsible for noticing and responding when nodes, containers o
 - It is a network proxy that runs on each node in your cluster.
 - It maintains network rules on nodes
 - In short, these network rules allow network communication to your Pods from network sessions inside or outside of your cluster.
-
-
-
-
-
 
 ```
 ## Create one aks cluster using azure portal
