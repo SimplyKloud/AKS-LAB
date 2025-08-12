@@ -20,3 +20,7 @@
 | docker stats | Display a live stream of container(s) resource usage statistics |
 | docker top container-id or name | Display the running processes of a container |
 | docker version | Show the Docker version information |
+| docker search <image_name> | Search Hub for an image |
+| docker logs -f <container_name> | Fetch and follow the logs of a container |
+| docker inspect <container_name> (or <container_id>) | To inspect a running container |
+| docker container stats | View resource usage stats |
