@@ -1,3 +1,17 @@
+## POD
+- Kubernetes does not deploy containers directly on the worker nodes.
+- Container is encapsulated in to a kubernets object called POD
+- POD is a single instance of application and is the smallest deployable unit in kubernetes
+- PODs generally have one to one relationship with containers
+- We can scale up by adding new PODs and scale down by deleting PODs based on demand
+- We cannot have multiple containers of same kind in a single POD
+- We can have multiple containers in a single POD, proviced both are not same kind
+- Helper containers (Side-Car)
+  - Data Puller: Pull data required by main container
+  - Data Pusher: Push data by collecting from main container(logs)
+  - Proxies: Writes static data to HTML files using helper container
+    
+```
 # Configure Cluster Creds (kube config) for Azure AKS Clusters
 az aks get-credentials --resource-group aks-rg1 --name aksdemo1
 
@@ -99,3 +113,5 @@ kubectl delete pod my-first-pod
 
 # Get all Objects in default namespace
 kubectl get all
+
+```
