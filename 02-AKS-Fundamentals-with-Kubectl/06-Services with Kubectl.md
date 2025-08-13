@@ -30,6 +30,8 @@ Observation: We don't need to specify "--type=ClusterIp" because default setting
 
 
 ## Step-03: LoadBalancer Service - Frontend Application Setup
+<img width="1382" height="708" alt="image" src="https://github.com/user-attachments/assets/537e9c26-1270-4698-8ced-dc174900fe1f" />
+
 - We have implemented **LoadBalancer Service** multiple times so far (in pods, replicasets and deployments), even then we are going to implement one more time to get a full architectural view in relation with ClusterIp service. 
 - Create a deployment for Frontend Application (Nginx acting as Reverse Proxy)
 - Create a LoadBalancer service for load balancing frontend application. 
