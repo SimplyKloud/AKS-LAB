@@ -15,12 +15,16 @@
 ## AKS Introduction
 - AKS is highly available, secure and fully Azure managed Kubernetes Service
 - As on today available in 36 regions and growing. 
-- When compared to other cloud providers, AKS is the one which is available in highest number of regions
+- Service discovery and load balancing
+- Automatic rollouts and rollbacks
+- Self healing
+- Secret and configuration management
 - Will be able to run any type of workloads 
 	- Windows based applications like .Net Apps 
 	- Linux supported applications like Java
 	- IOT device deployment and management on demand
 	- Machine Learning Model training with AKS
+ - 
 
 ## AKS Architecture - Master
 <img width="477" height="556" alt="image" src="https://github.com/user-attachments/assets/3656cba7-e285-400f-ae8b-5222960aa435" />
