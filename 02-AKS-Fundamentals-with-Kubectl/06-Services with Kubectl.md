@@ -73,3 +73,8 @@ kubectl scale --replicas=10 deployment/my-backend-rest-app
 # Test again to view the backend service Load Balancing
 http://<External-IP-from-get-service-output>/hello
 ```
+
+# Delete all resources
+```
+kubectl delete all --all -n <your-namespace-name>
+```
