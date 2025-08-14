@@ -1,0 +1,52 @@
+## Pod.yml
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: my-app-pod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: myapp
+      image: stacksimplify/kubenginx:1.0.0
+      ports:
+        - containerPort: 80
+
+---
+## loadbalancer-service.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-load-balance-service
+spec:
+  type: LoadBalancer
+  selector: 
+    app: myapp
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+
+---
+## replicaset.yml
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp2-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp2
+  template:
+    metadata:
+      name: myapp2-pod
+      labels:
+        app: myapp2
+    spec:
+      containers:
+        - name: mayapp2-container
+          image: stacksimplify/kubenginx:2.0.0
+          ports:
+            - containerPort: 80
+
