@@ -1,3 +1,4 @@
+## stoarge class.yml
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
@@ -46,3 +47,83 @@ parameters:
 # Managed: When managed used, that disk is persisted for the Lifecycle of the cluster.
 # If we delete cluster, it will delete the disk
 ##############################################################################
+
+---
+
+## persistent-volume-claim.yml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: azure-managed-disk-pvc
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: managed-premium-retain-sc
+  resources:
+    requests:
+      storage: 5Gi      
+
+---
+
+## usermanagement-config-map.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: usermanagement-dbcreation-script
+data: 
+  mysql_usermgmt.sql: |-
+    DROP DATABASE IF EXISTS webappdb;
+    CREATE DATABASE webappdb; 
+---
+
+## mysql-deployment.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec: 
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate 
+  template: 
+    metadata: 
+      labels: 
+        app: mysql
+    spec: 
+      containers:
+        - name: mysql
+          image: mysql:5.6
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: dbpassword11
+          ports:
+            - containerPort: 3306
+              name: mysql    
+          volumeMounts:
+            - name: mysql-persistent-storage
+              mountPath: /var/lib/mysql    
+            - name: usermanagement-dbcreation-script
+              mountPath: /docker-entrypoint-initdb.d #https://hub.docker.com/_/mysql Refer Initializing a fresh instance                                            
+      volumes: 
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: azure-managed-disk-pvc
+        - name: usermanagement-dbcreation-script
+          configMap:
+            name: usermanagement-dbcreation-script
+
+---
+## mysql-clusterip-service.yml
+apiVersion: v1
+kind: Service
+metadata: 
+  name: mysql
+spec:
+  selector:
+    app: mysql 
+  ports: 
+    - port: 3306  
+  clusterIP: None # This means we are going to use Pod IP    
