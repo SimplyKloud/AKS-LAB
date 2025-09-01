@@ -39,34 +39,29 @@ kalyanreddy@Kalyans-Mac-mini-2 ~ % curl http://localhost
 </html>%
 kalyanreddy@Kalyans-Mac-mini-2 ~ % 
 
+docker images
+docker rmi <image_name> # Remove image
+docker pull stacksimplify/mynginx:v1
+docker run --name <container_name> -p <Host_Port>:<Container_Port> -d <image_name>:<tag> #-d means run container in background with detached mode
+docker run --name mycontainer -p 8080:80 -d stacksimplify/mynginx:v1 #localhost:8080
 ```
 
 ## Step-4: List Running Containers
 ```
-docker ps
-docker ps -a
-docker ps -a -q
+docker ps # lists the running containers
+docker ps -a # lists all containers including stopped ones
+docker ps -q # lists only container ids
+
+# connect to docker contaienr
+docker exec -it <container_name> /bin/bash
+host # container id
+ls # list the files inside contaienr
+exit # come out of contaienr
+docker exec -it <container_name> ls # directly connect and execute command in a single command
+docker inspect <container_name or id>
+
+docker stop <container_name or id> # Stop the container
+docker start <container_name or id> # start the container
+docker rm <container_name or id> # remove the container and container should be in stopped state
 ```
 
-## Step-5: Connect to Container Terminal
-```
-docker exec -it <container-name> /bin/sh
-```
-
-## Step-6: Container Stop, Start 
-```
-docker stop <container-name>
-docker start  <container-name>
-```
-
-## Step-7: Remove Container 
-```
-docker stop <container-name> 
-docker rm <container-name>
-```
-
-## Step-8: Remove Image
-```
-docker images
-docker rmi  <image-id>
-```
